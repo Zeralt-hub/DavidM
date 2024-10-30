@@ -1,129 +1,126 @@
-// #include <Arduino.h>
-// #include <SPI.h>
-// #include <LoRa.h>
-
-// #define SCK 5
-// #define MISO 19
-// #define MOSI 27
-// #define SS 18
-// #define RST 23
-// #define DIO 26
-// #define BAND 915E6
-
-// int contador = 0;
-// void setup() {
-//   Serial.begin(115200);
-//   SPI.begin(SCK,MISO,MOSI,SS);
-//   LoRa.setPins(SS,RST,DIO);
-//   if (!LoRa.begin(915E6))
-//   {
-//     Serial.print("No inicio el radio");
-//     while (1);
-//   }
-//   Serial.print("Radio inicializado exitosamente");
-//   LoRa.setFrequency(915E6);
-// }
-
-// void loop() {
-//   int a;
-//   while(LoRa.beginPacket() == 0)
-//   {
-//     Serial.print("esperando por el radio...");
-//     delay(100);
-//   }
-//   Serial.print("enviando data");
-//   Serial.println(contador);
-
-//   LoRa.beginPacket();
-//   Serial.println("incio paquete");
-//   LoRa.print("hola");
-//   Serial.println("escribio hola");
-//   LoRa.print(contador);
-//   Serial.println("incremetno contador");
-//   a = LoRa.endPacket();
-//   if (a) Serial.println("transmision exitosa");
-//   else Serial.println("error de tx");
-//   Serial.println("termino paquete");
-//   contador++;
-
-//   delay(1000);
-// }
-
-// Only supports SX1276/SX1278
 #include <LoRa.h>
 #include "LoRaBoards.h"
+#include <TinyGPSPlus.h>
+#include <ClosedCube_HDC1080.h>
+#include <WiFi.h>
 
-#ifndef CONFIG_RADIO_FREQ
-#define CONFIG_RADIO_FREQ           915.0
-#endif
-#ifndef CONFIG_RADIO_OUTPUT_POWER
-#define CONFIG_RADIO_OUTPUT_POWER   17
-#endif
-#ifndef CONFIG_RADIO_BW
-#define CONFIG_RADIO_BW             125.0
-#endif
+const char* ssid = "UPBWiFi";  
+const char* host = "10.38.32.137";
+const uint16_t port = 1026;
 
+// Configuración de GPS
+TinyGPSPlus gps;
+HardwareSerial ss(1);  // Serial1 (TX=12, RX=34) 
 
-#if !defined(USING_SX1276) && !defined(USING_SX1278)
-#error "LoRa example is only allowed to run SX1276/78. For other RF models, please run examples/RadioLibExamples"
-#endif
+// Configuración del sensor de temperatura y humedad (TinyCube)
+ClosedCube_HDC1080 sensor;
 
-int counter = 0;
+WiFiClient client;
+
+unsigned long lastDisplayTime = 0;
+unsigned long lastSendTime = 0;
+const unsigned long displayInterval = 5000;    // Mostrar en consola cada 5 segundos
+const unsigned long sendInterval = 300000;     // Enviar al servidor cada 5 minutos (300,000 ms)
 
 void setup()
 {
-    setupBoards();
-    // When the power is turned on, a delay is required.
-    delay(1500);
+    Serial.begin(115200);
+    ss.begin(9600, SERIAL_8N1, 34, 12);  // Configuración para GPS en TTGO T-Beam (RX=34, TX=12)
 
-#ifdef  RADIO_TCXO_ENABLE
-    pinMode(RADIO_TCXO_ENABLE, OUTPUT);
-    digitalWrite(RADIO_TCXO_ENABLE, HIGH);
-#endif
+    WiFi.mode(WIFI_STA);
+    WiFi.begin(ssid);
 
-    Serial.println("LoRa Sender");
-    LoRa.setPins(RADIO_CS_PIN, RADIO_RST_PIN, RADIO_DIO0_PIN);
-    if (!LoRa.begin(CONFIG_RADIO_FREQ * 1000000)) {
-        Serial.println("Starting LoRa failed!");
-        while (1);
+    Serial.print("Conectando al WiFi");
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(200);
+        Serial.print(".");
     }
+    Serial.println("\nConectado al WiFi");
 
-    LoRa.setTxPower(CONFIG_RADIO_OUTPUT_POWER);
+    sensor.begin(0x40);
+    delay(100);  // Asegurar que el sensor esté listo
 
-    LoRa.setSignalBandwidth(CONFIG_RADIO_BW * 1000);
-
-    LoRa.setSpreadingFactor(10);
-
-    LoRa.setPreambleLength(16);
-
-    LoRa.setSyncWord(0xAB);
-
-    LoRa.disableCrc();
-
-    LoRa.disableInvertIQ();
-
-    LoRa.setCodingRate4(7);
+    Serial.println("Sistema listo.");
 }
 
 void loop()
 {
-    Serial.print("Sending packet: ");
-    Serial.println(counter);
-
-    // send packet
-    LoRa.beginPacket();
-    LoRa.print("hello ");
-    LoRa.print(counter);
-    LoRa.endPacket();
-
-    if (u8g2) {
-        char buf[256];
-        u8g2->clearBuffer();
-        u8g2->drawStr(0, 12, "Transmitting: OK!");
-        snprintf(buf, sizeof(buf), "Sending: %d", counter);
-        u8g2->drawStr(0, 30, buf);
-        u8g2->sendBuffer();
+    while (ss.available()) {
+        gps.encode(ss.read());
     }
-    counter++;
-    delay(5000);
+
+    unsigned long currentTime = millis();
+
+    if (currentTime - lastDisplayTime >= displayInterval) {
+        lastDisplayTime = currentTime;
+        
+        Serial.print("Latitud: "); Serial.println(gps.location.lat(), 6);
+        Serial.print("Longitud: "); Serial.println(gps.location.lng(), 6);
+        Serial.print("Altitud: "); Serial.println(gps.altitude.meters());
+        Serial.print("Fecha: "); Serial.print(gps.date.month()); Serial.print("/"); Serial.print(gps.date.day()); Serial.print("/"); Serial.println(gps.date.year());
+        Serial.print("Hora: "); Serial.print(gps.time.hour()); Serial.print(":"); Serial.print(gps.time.minute()); Serial.print(":"); Serial.println(gps.time.second());
+        Serial.print("Temperatura: "); Serial.print(sensor.readTemperature()); Serial.println(" C");
+        Serial.print("Humedad: "); Serial.print(sensor.readHumidity()); Serial.println(" %");
+    }
+
+    if (currentTime - lastSendTime >= sendInterval && gps.location.isValid()) {
+        lastSendTime = currentTime;
+        
+        float temperatura = sensor.readTemperature();
+        float humedad = sensor.readHumidity();
+        double latitud = gps.location.lat();
+        double longitud = gps.location.lng();
+
+        String jsonData = "{\"lat\":{\"value\":" + String(latitud, 6) + ", \"type\":\"Float\"},"
+                          "\"lon\":{\"value\":" + String(longitud, 6) + ", \"type\":\"Float\"},"
+                          "\"temp\":{\"value\":" + String(temperatura) + ", \"type\":\"Float\"},"
+                          "\"humedad\":{\"value\":" + String(humedad) + ", \"type\":\"Float\"}}";
+
+        //Actualizar la entidad con PATCH
+        if (client.connect(host, port)) {
+            client.println("PATCH /v2/entities/DavidM001/attrs HTTP/1.1");
+            client.println("Host: 10.38.32.137:1026");
+            client.println("Content-Type: application/json");
+            client.println("Connection: close");
+            client.print("Content-Length: ");
+            client.println(jsonData.length());
+            client.println();
+            client.println(jsonData);
+
+            delay(100);
+            if (client.available()) {
+                String response = client.readString();
+                Serial.print("Respuesta del servidor: ");
+                Serial.println(response);
+
+                // Si el servidor responde con un error, intenta crear la entidad con POST (por si se cae el server o tengo que borrar la entidad.)
+                if (response.indexOf("Not Found") > 0) {
+                    client.stop();
+                    if (client.connect(host, port)) {
+                        Serial.println("Creando la entidad por primera vez");
+
+                        String createData = "{\"id\":\"DavidM001\",\"type\":\"SensorData\","
+                                            "\"lat\":{\"value\":" + String(latitud, 6) + ", \"type\":\"Float\"},"
+                                            "\"lon\":{\"value\":" + String(longitud, 6) + ", \"type\":\"Float\"},"
+                                            "\"temp\":{\"value\":" + String(temperatura) + ", \"type\":\"Float\"},"
+                                            "\"humedad\":{\"value\":" + String(humedad) + ", \"type\":\"Float\"}}";
+
+                        client.println("POST /v2/entities HTTP/1.1");
+                        client.println("Host: 10.38.32.137:1026");
+                        client.println("Content-Type: application/json");
+                        client.println("Connection: close");
+                        client.print("Content-Length: ");
+                        client.println(createData.length());
+                        client.println();
+                        client.println(createData);
+                    }
+                }
+            }
+            client.stop();
+        } else {
+            Serial.println("Error al conectar con el servidor");
+        }
+    }
+
+    delay(100);  // Pequeña espera para evitar sobrecarga
 }
