@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de la Planta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #2a9d8f;
+            margin: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #2a9d8f;
+            color: #fff;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .btn-update {
+            background-color: #2a9d8f;
+            color: white;
+        }
+        .btn-update:hover {
+            background-color: #21867a;
+        }
+        .btn-clear {
+            background-color: #e76f51;
+            color: white;
+        }
+        .btn-clear:hover {
+            background-color: #c55a3d;
+        }
+        .btn-back {
+            background-color: #007bff;
+            color: white;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-back:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Histórico de la Planta</h1>
+    <div class="container">
+        <form method="POST">
+            <div class="buttons">
+                <button type="submit" name="actualizar_datos" class="btn-update">Actualizar Datos</button>
+                <button type="submit" name="borrar_datos" class="btn-clear">Borrar Histórico</button>
+            </div>
+        </form>
+        {% if historico_data.empty %}
+            <p>No hay datos disponibles en el histórico.</p>
+        {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha y Hora</th>
+                        <th>Temperatura (°C)</th>
+                        <th>Humedad (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in historico_data.iterrows() %}
+                    <tr>
+                        <td>{{ row["time_index"] }}</td>
+                        <td>{{ row["temperatura"] }}</td>
+                        <td>{{ row["humedad"] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <a href="/predicciones" class="btn-back">Regresar a Predicciones</a>
+    </div>
+</body>
+</html>
+

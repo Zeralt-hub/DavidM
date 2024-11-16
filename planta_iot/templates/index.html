@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de la Planta</title>
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Estilos CSS -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f7f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 20px;
+            font-size: 3em;
+            color: #2a9d8f;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e8f6f3;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            transition: transform 0.3s ease;
+        }
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        .section-title {
+            font-size: 1.5em;
+            color: #2a9d8f;
+            margin-bottom: 10px;
+        }
+        .section-content {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #555;
+        }
+        .slider {
+            margin-top: 10px;
+            position: relative;
+        }
+        .slide {
+            display: none;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .slide.show {
+            display: block;
+        }
+        .nav-btn {
+            background-color: #e76f51;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 5px;
+        }
+        .nav-btn:hover {
+            background-color: #c55a3d;
+        }
+        .navigation-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .btn {
+            background-color: #2a9d8f;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #21867a;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Información de la Planta</h1>
+
+    <!-- Información General -->
+    <div class="section">
+        <div class="section-title">Información General</div>
+        <div class="section-content">
+            Ruta graveolens, comúnmente llamada ruda, es una especie de la familia Rutaceae, nativa del sur de Europa. Se suele cultivar como planta ornamental de jardín, en especial por sus hojas azuladas y por su tolerancia a suelos secos y al calor. También se cultiva como hierba medicinal y condimento.
+        </div>
+    </div>
+
+    <!-- Descripción -->
+    <div class="section">
+        <div class="section-title">Descripción</div>
+        <div class="section-content">
+            Especie perenne sub-arbustiva muy ramificada, con base semi-leñosa a leñosa. Alcanza una altura de entre 70 a 100 cm. Las hojas, algo carnosas y de color verde glauco, son alternas, bi- o tripinnadas; con folíolos oblongos o espatulados. La inflorescencia es un corimbo, con pequeñas flores de cuatro o cinco pétalos amarillos. El fruto es una cápsula de cinco lóbulos. La planta entera despide un fuerte aroma acre. El sabor de las hojas es ligeramente amargo.
+        </div>
+    </div>
+
+    <!-- Usos con slider -->
+    <div class="section">
+        <div class="section-title">Usos</div>
+        <div class="slider">
+            <div id="slide1" class="slide show">
+                <p><strong>Culinario:</strong> La ruda se emplea en la cocina debido a su ligero toque entre picante y amargo, aunque su aroma es empleado en diferentes salsas o mezclas alcohólicas.</p>
+            </div>
+            <div id="slide2" class="slide">
+                <p><strong>Medicinal:</strong> Se conocen sus propiedades emenagogas. Tomada en infusión ayuda a reponerse y mejorar el estado físico tras el parto.</p>
+            </div>
+            <div id="slide3" class="slide">
+                <p><strong>Analgésico y Anti-inflamatorio:</strong> Tiene propiedades analgésicas y antiinflamatorias. Se usa tópicamente para tratar el dolor muscular y articular.</p>
+            </div>
+            <button class="nav-btn" onclick="prevSlide()">Anterior</button>
+            <button class="nav-btn" onclick="nextSlide()">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- Botón para predicciones -->
+    <div class="navigation-buttons">
+        <a href="/predicciones"><button class="btn">Ir a Predicciones</button></a>
+    </div>
+
+    <!-- Scripts JavaScript para el slider -->
+    <script>
+        let currentSlide = 1;
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { currentSlide = 1 }
+            if (n < 1) { currentSlide = slides.length }
+            for (let slide of slides) { slide.classList.remove("show") }
+            slides[currentSlide - 1].classList.add("show");
+        }
+        function nextSlide() { showSlide(++currentSlide); }
+        function prevSlide() { showSlide(--currentSlide); }
+    </script>
+</body>
+</html>
+

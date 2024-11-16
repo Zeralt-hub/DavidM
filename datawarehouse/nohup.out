@@ -1,0 +1,32 @@
+2024-11-07 17:11:27,747 - INFO - Conectando a CrateDB...
+2024-11-07 17:11:27,882 - INFO - Datos actualizados correctamente a las 2024-11-07 17:11:27.882806.
+ * Serving Flask app 'dataware'
+ * Debug mode: off
+2024-11-07 17:11:27,885 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 17:11:27,885 - INFO - [33mPress CTRL+C to quit[0m
+Exception ignored in: <module 'threading' from '/usr/lib/python3.10/threading.py'>
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1567, in _shutdown
+    lock.acquire()
+KeyboardInterrupt: 
+2024-11-07 17:12:25,412 - INFO - Conectando a CrateDB...
+2024-11-07 17:12:25,520 - INFO - Datos actualizados correctamente a las 2024-11-07 17:12:25.520145.
+ * Serving Flask app 'dataware'
+ * Debug mode: off
+2024-11-07 17:12:25,522 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 17:12:25,522 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 17:17:25,921 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 17:17:25,926 - INFO - Conectando a CrateDB...
+2024-11-07 17:17:25,970 - INFO - Datos actualizados correctamente a las 2024-11-07 17:17:25.970625.
+2024-11-07 17:22:26,368 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 17:22:26,369 - INFO - Conectando a CrateDB...
+2024-11-07 17:22:26,489 - INFO - Datos actualizados correctamente a las 2024-11-07 17:22:26.489090.
+2024-11-07 17:27:26,874 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 17:27:26,879 - INFO - Conectando a CrateDB...
+2024-11-07 17:27:26,918 - INFO - Datos actualizados correctamente a las 2024-11-07 17:27:26.918042.

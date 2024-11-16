@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz API Data Warehouse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2E8B57;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: #2E8B57;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #206a3b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2E8B57;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interfaz de API - Data Warehouse</h1>
+    <div class="container">
+        <div class="buttons">
+            <button class="btn" onclick="fetchAllData()">Ver Todos los Datos</button>
+            <button class="btn" onclick="fetchSensorData('temp')">Ver Datos de Temperatura</button>
+            <button class="btn" onclick="fetchSensorData('humedad')">Ver Datos de Humedad</button>
+            <button class="btn" onclick="fetchDataByRange()">Filtrar por Rango</button>
+        </div>
+
+        <div id="filter-range" style="display: none; margin-bottom: 20px;">
+            <label for="start-date">Fecha Inicio:</label>
+            <input type="date" id="start-date">
+            <label for="end-date">Fecha Fin:</label>
+            <input type="date" id="end-date">
+            <button class="btn" onclick="applyDateFilter()">Aplicar Filtro</button>
+        </div>
+
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Temperatura</th>
+                    <th>Humedad</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Se llenan los datos -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const API_BASE_URL = "http://127.0.0.1:5001/api/data";
+
+        // Función para obtener todos los datos
+        function fetchAllData() {
+            fetch(`${API_BASE_URL}?page=1&limit=100`)
+                .then(response => response.json())
+                .then(data => populateTable(data))
+                .catch(error => console.error("Error al obtener los datos:", error));
+        }
+
+        // Función para obtener datos de un sensor específico
+        function fetchSensorData(sensor) {
+            fetch(`${API_BASE_URL}/${sensor}`)
+                .then(response => response.json())
+                .then(data => populateTable(data))
+                .catch(error => console.error("Error al obtener los datos del sensor:", error));
+        }
+
+        // Función para mostrar el formulario de filtro por rango
+        function fetchDataByRange() {
+            document.getElementById("filter-range").style.display = "block";
+        }
+
+        // Aplicar filtro de fechas
+        function applyDateFilter() {
+            const startDate = document.getElementById("start-date").value;
+            const endDate = document.getElementById("end-date").value;
+
+            if (!startDate || !endDate) {
+                alert("Por favor, selecciona ambas fechas.");
+                return;
+            }
+
+            fetch(`${API_BASE_URL}/range?start_date=${startDate}&end_date=${endDate}`)
+                .then(response => response.json())
+                .then(data => populateTable(data))
+                .catch(error => console.error("Error al obtener los datos del rango:", error));
+        }
+
+        // Poblar la tabla con datos
+        function populateTable(data) {
+            const tableBody = document.querySelector("#data-table tbody");
+            tableBody.innerHTML = ""; // Limpiar la tabla
+
+            data.forEach(row => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${row.time_index || "N/A"}</td>
+                    <td>${row.temp || "N/A"}</td>
+                    <td>${row.humedad || "N/A"}</td>
+                    <td>${row.lat || "N/A"}</td>
+                    <td>${row.lon || "N/A"}</td>
+                `;
+                tableBody.appendChild(tr);
+            });
+        }
+    </script>
+</body>
+</html>
+

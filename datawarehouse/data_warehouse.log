@@ -1,0 +1,236 @@
+2024-11-07 16:11:25,004 - INFO - Conectando a CrateDB...
+2024-11-07 16:13:35,691 - WARNING - Retrying (Retry(total=9, connect=None, read=0, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7fec5c3c8130>, 'Connection to 10.38.32.137 timed out. (connect timeout=None)')': /
+2024-11-07 16:21:08,777 - INFO - Conectando a CrateDB...
+2024-11-07 16:21:08,793 - ERROR - Ocurrió un error durante la actualización: ColumnUnknownException[Column temp['value'] unknown]
+2024-11-07 16:21:08,796 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:21:08,796 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:21:23,998 - INFO - 127.0.0.1 - - [07/Nov/2024 16:21:23] "GET / HTTP/1.1" 200 -
+2024-11-07 16:21:27,887 - INFO - Conectando a CrateDB...
+2024-11-07 16:21:27,887 - INFO - 127.0.0.1 - - [07/Nov/2024 16:21:27] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-07 16:21:27,902 - ERROR - Ocurrió un error durante la actualización: ColumnUnknownException[Column temp['value'] unknown]
+2024-11-07 16:21:30,475 - INFO - 127.0.0.1 - - [07/Nov/2024 16:21:30] "GET / HTTP/1.1" 200 -
+2024-11-07 16:22:16,682 - INFO - 172.22.176.1 - - [07/Nov/2024 16:22:16] "GET / HTTP/1.1" 200 -
+2024-11-07 16:22:16,724 - INFO - 172.22.176.1 - - [07/Nov/2024 16:22:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-07 16:22:34,321 - INFO - 127.0.0.1 - - [07/Nov/2024 16:22:34] "GET / HTTP/1.1" 200 -
+2024-11-07 16:22:37,720 - INFO - Conectando a CrateDB...
+2024-11-07 16:22:37,720 - INFO - 127.0.0.1 - - [07/Nov/2024 16:22:37] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-07 16:22:37,744 - ERROR - Ocurrió un error durante la actualización: ColumnUnknownException[Column temp['value'] unknown]
+2024-11-07 16:22:43,454 - INFO - 127.0.0.1 - - [07/Nov/2024 16:22:43] "GET / HTTP/1.1" 200 -
+2024-11-07 16:22:49,297 - INFO - Conectando a CrateDB...
+2024-11-07 16:22:49,298 - INFO - 172.22.176.1 - - [07/Nov/2024 16:22:49] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-07 16:22:49,312 - ERROR - Ocurrió un error durante la actualización: ColumnUnknownException[Column temp['value'] unknown]
+2024-11-07 16:26:09,168 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 16:26:09,168 - INFO - Conectando a CrateDB...
+2024-11-07 16:26:09,189 - ERROR - Ocurrió un error durante la actualización: ColumnUnknownException[Column temp['value'] unknown]
+2024-11-07 16:27:11,754 - INFO - Conectando a CrateDB...
+2024-11-07 16:27:11,955 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:27:11,958 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:27:11,958 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:27:38,251 - INFO - 127.0.0.1 - - [07/Nov/2024 16:27:38] "GET / HTTP/1.1" 200 -
+2024-11-07 16:27:46,113 - INFO - Conectando a CrateDB...
+2024-11-07 16:27:46,113 - INFO - 127.0.0.1 - - [07/Nov/2024 16:27:46] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-07 16:27:46,134 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:28:03,784 - INFO - 127.0.0.1 - - [07/Nov/2024 16:28:03] "GET / HTTP/1.1" 200 -
+2024-11-07 16:32:12,336 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 16:32:12,337 - INFO - Conectando a CrateDB...
+2024-11-07 16:32:12,362 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: Connection refused
+	Is the server running on that host and accepting TCP/IP connections?
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:40:33,897 - INFO - Conectando a CrateDB...
+2024-11-07 16:40:34,039 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "DAVID"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "DAVID"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:40:34,043 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:40:34,043 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:41:53,302 - INFO - Conectando a CrateDB...
+2024-11-07 16:41:53,409 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "david"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "david"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:41:53,412 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:41:53,413 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:42:41,329 - INFO - Conectando a CrateDB...
+2024-11-07 16:42:41,450 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "david@DESKTOP-D2KTHBL"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "david@DESKTOP-D2KTHBL"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:42:41,453 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:42:41,453 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:46:16,038 - INFO - Conectando a CrateDB...
+2024-11-07 16:46:16,153 - ERROR - Ocurrió un error durante la actualización: Not an executable object: '\n            CREATE TABLE IF NOT EXISTS sensor_data (\n                entity_id VARCHAR(255),\n                entity_type VARCHAR(255),\n                time_index TIMESTAMP,\n                temp FLOAT,\n                humedad FLOAT,\n                lat FLOAT,\n                lon FLOAT,\n                PRIMARY KEY (entity_id, time_index)\n            );\n            '
+2024-11-07 16:46:16,156 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:46:16,156 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:46:51,851 - INFO - 127.0.0.1 - - [07/Nov/2024 16:46:51] "GET / HTTP/1.1" 200 -
+2024-11-07 16:46:53,872 - INFO - Conectando a CrateDB...
+2024-11-07 16:46:53,872 - INFO - 127.0.0.1 - - [07/Nov/2024 16:46:53] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-07 16:46:53,903 - ERROR - Ocurrió un error durante la actualización: Not an executable object: '\n            CREATE TABLE IF NOT EXISTS sensor_data (\n                entity_id VARCHAR(255),\n                entity_type VARCHAR(255),\n                time_index TIMESTAMP,\n                temp FLOAT,\n                humedad FLOAT,\n                lat FLOAT,\n                lon FLOAT,\n                PRIMARY KEY (entity_id, time_index)\n            );\n            '
+2024-11-07 16:46:55,809 - INFO - 127.0.0.1 - - [07/Nov/2024 16:46:55] "GET / HTTP/1.1" 200 -
+2024-11-07 16:48:58,607 - INFO - Conectando a CrateDB...
+2024-11-07 16:48:58,703 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "DAVID"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "DAVID"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:48:58,706 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:48:58,706 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:49:24,237 - INFO - 127.0.0.1 - - [07/Nov/2024 16:49:24] "GET / HTTP/1.1" 200 -
+2024-11-07 16:49:26,053 - INFO - Conectando a CrateDB...
+2024-11-07 16:49:26,053 - INFO - 127.0.0.1 - - [07/Nov/2024 16:49:26] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-07 16:49:26,084 - ERROR - Ocurrió un error durante la actualización: (psycopg2.OperationalError) connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "DAVID"
+connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  password authentication failed for user "DAVID"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2024-11-07 16:49:28,258 - INFO - 127.0.0.1 - - [07/Nov/2024 16:49:28] "GET / HTTP/1.1" 200 -
+2024-11-07 16:50:35,933 - INFO - Conectando a CrateDB...
+2024-11-07 16:50:36,115 - INFO - Datos actualizados correctamente a las 2024-11-07 16:50:36.115369.
+2024-11-07 16:50:36,118 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 16:50:36,118 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 16:50:40,867 - INFO - 127.0.0.1 - - [07/Nov/2024 16:50:40] "GET / HTTP/1.1" 200 -
+2024-11-07 16:50:43,593 - INFO - Conectando a CrateDB...
+2024-11-07 16:50:43,593 - INFO - 127.0.0.1 - - [07/Nov/2024 16:50:43] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-07 16:50:43,654 - INFO - Datos actualizados correctamente a las 2024-11-07 16:50:43.654332.
+2024-11-07 16:50:45,596 - INFO - 127.0.0.1 - - [07/Nov/2024 16:50:45] "GET / HTTP/1.1" 200 -
+2024-11-07 17:11:27,747 - INFO - Conectando a CrateDB...
+2024-11-07 17:11:27,882 - INFO - Datos actualizados correctamente a las 2024-11-07 17:11:27.882806.
+2024-11-07 17:11:27,885 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 17:11:27,885 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 17:12:25,412 - INFO - Conectando a CrateDB...
+2024-11-07 17:12:25,520 - INFO - Datos actualizados correctamente a las 2024-11-07 17:12:25.520145.
+2024-11-07 17:12:25,522 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-07 17:12:25,522 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 17:17:25,921 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 17:17:25,926 - INFO - Conectando a CrateDB...
+2024-11-07 17:17:25,970 - INFO - Datos actualizados correctamente a las 2024-11-07 17:17:25.970625.
+2024-11-07 17:22:26,368 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 17:22:26,369 - INFO - Conectando a CrateDB...
+2024-11-07 17:22:26,489 - INFO - Datos actualizados correctamente a las 2024-11-07 17:22:26.489090.
+2024-11-07 17:27:26,874 - INFO - Ejecutando tarea programada de actualización...
+2024-11-07 17:27:26,879 - INFO - Conectando a CrateDB...
+2024-11-07 17:27:26,918 - INFO - Datos actualizados correctamente a las 2024-11-07 17:27:26.918042.
+2024-11-13 15:32:49,311 - INFO - Conectando a CrateDB...
+2024-11-13 15:32:49,390 - ERROR - Ocurrió un error durante la actualización: No module named 'psycopg2'
+2024-11-13 15:32:49,393 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-13 15:32:49,393 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-13 15:33:12,085 - INFO - 172.22.176.1 - - [13/Nov/2024 15:33:12] "GET / HTTP/1.1" 200 -
+2024-11-13 15:33:12,142 - INFO - 172.22.176.1 - - [13/Nov/2024 15:33:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-13 15:33:18,318 - INFO - Conectando a CrateDB...
+2024-11-13 15:33:18,318 - INFO - 172.22.176.1 - - [13/Nov/2024 15:33:18] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-13 15:33:18,336 - ERROR - Ocurrió un error durante la actualización: No module named 'psycopg2'
+2024-11-13 15:34:43,694 - INFO - Conectando a CrateDB...
+2024-11-13 15:34:43,825 - INFO - Datos actualizados correctamente a las 2024-11-13 15:34:43.825392.
+2024-11-13 15:34:43,827 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.22.187.202:5000
+2024-11-13 15:34:43,827 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-13 15:34:56,630 - INFO - 172.22.176.1 - - [13/Nov/2024 15:34:56] "GET / HTTP/1.1" 200 -
+2024-11-13 15:34:58,648 - INFO - Conectando a CrateDB...
+2024-11-13 15:34:58,648 - INFO - 172.22.176.1 - - [13/Nov/2024 15:34:58] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-13 15:34:58,709 - INFO - Datos actualizados correctamente a las 2024-11-13 15:34:58.709869.
+2024-11-13 15:35:13,546 - INFO - 172.22.176.1 - - [13/Nov/2024 15:35:13] "GET / HTTP/1.1" 200 -
+2024-11-13 15:50:44,123 - INFO - Conectando a CrateDB...
+2024-11-13 15:50:44,256 - INFO - Datos actualizados correctamente a las 2024-11-13 15:50:44.256387.
+2024-11-13 15:50:45,282 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://172.22.187.202:5000
+2024-11-13 15:50:45,283 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-13 15:55:44,659 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 15:55:44,663 - INFO - Conectando a CrateDB...
+2024-11-13 15:55:44,708 - INFO - Datos actualizados correctamente a las 2024-11-13 15:55:44.707966.
+2024-11-13 16:13:05,824 - INFO - Conectando a CrateDB...
+2024-11-13 16:13:05,927 - INFO - Datos actualizados correctamente a las 2024-11-13 16:13:05.927191.
+2024-11-13 16:13:06,956 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://172.22.187.202:5000
+2024-11-13 16:13:06,956 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-13 16:14:14,272 - INFO - 172.22.176.1 - - [13/Nov/2024 16:14:14] "GET / HTTP/1.1" 200 -
+2024-11-13 16:14:17,092 - INFO - Conectando a CrateDB...
+2024-11-13 16:14:17,092 - INFO - 172.22.176.1 - - [13/Nov/2024 16:14:17] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-13 16:14:17,154 - INFO - Datos actualizados correctamente a las 2024-11-13 16:14:17.154365.
+2024-11-13 16:14:19,124 - INFO - 172.22.176.1 - - [13/Nov/2024 16:14:19] "GET / HTTP/1.1" 200 -
+2024-11-13 16:18:06,319 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 16:18:06,319 - INFO - Conectando a CrateDB...
+2024-11-13 16:18:06,362 - INFO - Datos actualizados correctamente a las 2024-11-13 16:18:06.362328.
+2024-11-13 16:31:13,791 - INFO - Conectando a CrateDB...
+2024-11-13 16:31:13,878 - INFO - Datos actualizados correctamente a las 2024-11-13 16:31:13.878706.
+2024-11-13 16:31:14,900 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://172.22.187.202:5000
+2024-11-13 16:31:14,900 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-13 16:36:14,277 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 16:36:14,281 - INFO - Conectando a CrateDB...
+2024-11-13 16:36:14,324 - INFO - Datos actualizados correctamente a las 2024-11-13 16:36:14.324492.
+2024-11-13 16:41:14,721 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 16:41:14,721 - INFO - Conectando a CrateDB...
+2024-11-13 16:41:14,787 - INFO - Datos actualizados correctamente a las 2024-11-13 16:41:14.787772.
+2024-11-13 16:46:15,169 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 16:46:15,174 - INFO - Conectando a CrateDB...
+2024-11-13 16:46:15,218 - INFO - Datos actualizados correctamente a las 2024-11-13 16:46:15.218787.
+2024-11-13 16:51:15,607 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 16:51:15,611 - INFO - Conectando a CrateDB...
+2024-11-13 16:51:15,646 - INFO - Datos actualizados correctamente a las 2024-11-13 16:51:15.646857.
+2024-11-13 16:53:31,588 - INFO - 172.22.176.1 - - [13/Nov/2024 16:53:31] "GET / HTTP/1.1" 200 -
+2024-11-13 16:53:34,540 - INFO - Conectando a CrateDB...
+2024-11-13 16:53:34,540 - INFO - 172.22.176.1 - - [13/Nov/2024 16:53:34] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-13 16:53:34,581 - INFO - Datos actualizados correctamente a las 2024-11-13 16:53:34.581156.
+2024-11-13 16:54:35,718 - INFO - 172.22.176.1 - - [13/Nov/2024 16:54:35] "GET / HTTP/1.1" 200 -
+2024-11-13 16:56:16,038 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 16:56:16,039 - INFO - Conectando a CrateDB...
+2024-11-13 16:56:16,113 - INFO - Datos actualizados correctamente a las 2024-11-13 16:56:16.113760.
+2024-11-13 17:03:46,233 - INFO - Conectando a CrateDB...
+2024-11-13 17:03:46,320 - INFO - Datos actualizados correctamente a las 2024-11-13 17:03:46.320280.
+2024-11-13 17:03:47,346 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://172.22.187.202:5000
+2024-11-13 17:03:47,346 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-13 17:03:53,271 - INFO - Conectando a CrateDB...
+2024-11-13 17:03:53,272 - INFO - 172.22.176.1 - - [13/Nov/2024 17:03:53] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-13 17:03:53,351 - INFO - Datos actualizados correctamente a las 2024-11-13 17:03:53.351861.
+2024-11-13 17:03:54,771 - INFO - 172.22.176.1 - - [13/Nov/2024 17:03:54] "GET / HTTP/1.1" 200 -
+2024-11-13 17:03:56,524 - INFO - Conectando a CrateDB...
+2024-11-13 17:03:56,524 - INFO - 172.22.176.1 - - [13/Nov/2024 17:03:56] "[35m[1mPOST /actualizar HTTP/1.1[0m" 202 -
+2024-11-13 17:03:56,568 - INFO - Datos actualizados correctamente a las 2024-11-13 17:03:56.568787.
+2024-11-13 17:03:57,960 - INFO - 172.22.176.1 - - [13/Nov/2024 17:03:57] "GET / HTTP/1.1" 200 -
+2024-11-13 17:08:46,710 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 17:08:46,713 - INFO - Conectando a CrateDB...
+2024-11-13 17:08:46,783 - INFO - Datos actualizados correctamente a las 2024-11-13 17:08:46.783787.
+2024-11-13 17:13:47,160 - INFO - Ejecutando tarea programada de actualización...
+2024-11-13 17:13:47,165 - INFO - Conectando a CrateDB...
+2024-11-13 17:13:47,214 - INFO - Datos actualizados correctamente a las 2024-11-13 17:13:47.214438.
+2024-11-14 10:43:39,013 - INFO - Conectando a CrateDB...
